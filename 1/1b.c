@@ -1,4 +1,4 @@
-/*Crate a pointer to an integer array, Read and display the contents using
+/*Create a pointer to an integer array, Read and display the contents using
 pointer and also display the contents in reverse order using pointer.*/
 
 #include <stdio.h>
