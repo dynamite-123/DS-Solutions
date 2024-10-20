@@ -1,4 +1,4 @@
-/*a) Create 3 pointers called P1, P2, P3 and an integer variable X where P1
+/*Create 3 pointers called P1, P2, P3 and an integer variable X where P1
 points to P2, P2 points to P3 and P3 points to X. Demonstrate how to
 read and retrieve the value of X using P1, P2 and P3.*/
 

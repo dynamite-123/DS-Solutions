@@ -1,4 +1,4 @@
-/*c) Create a pointer to an integer array and pass this as parameter to a
+/*Create a pointer to an integer array and pass this as parameter to a
 function called Reverse which reverses the array contents using pointer.
 Write different functions called Read (P) to read the array elements
 using pointer P and Display (P) to display the array contents using P
