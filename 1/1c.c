@@ -19,7 +19,7 @@ void main() {
         scanf("%d", array + i);
     }
 
-    void reverse_array(int *array, int size);  // function prototype
+    void Reverse(int *array, int size);  // function prototype
     void Read(int *array, int size);
     void Display(int *array, int size);
     reverse_array(array, n);
@@ -29,7 +29,7 @@ void main() {
     }
 }
 
-void reverse_array(int *array, int size_of_array) {
+void Reverse(int *array, int size_of_array) {
     int temp;
     for (int i = 0; i < size_of_array / 2; i++) {
         temp = *(array + i);
