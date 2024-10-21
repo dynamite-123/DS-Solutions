@@ -1,4 +1,4 @@
-/*e) Create two pointer called PS1 and PS2 to two strings, Read the contents
+/*e) Create two pointers called PS1 and PS2 to two strings, Read the contents
 using pointers and also write a function StrCat (PS1, PS2) which
 concatenates second string to the end of first string using pointers PS1
 and PS2.*/
