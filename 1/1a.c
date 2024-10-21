@@ -5,7 +5,12 @@ read and retrieve the value of X using P1, P2 and P3.*/
 #include <stdio.h>
 
 void main() {
-    int x, *P3 = &x, **P2 = &P3, ***P1 = &P2;
+    int x;
+    int *P3, **P2, ***P1;
+
+    P3 = &x;
+    P2 = &P3;
+    P1 = &P2;
 
     // reading and printing using P3
     printf("Enter a number:\n");
