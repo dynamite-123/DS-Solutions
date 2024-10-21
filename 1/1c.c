@@ -19,6 +19,7 @@ void main() {
     void Display(int *array, int size);
     
     Read(array, n);
+    Display(array, n);
     Reverse(array, n);
     Display(array, n);
 
