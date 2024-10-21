@@ -14,19 +14,14 @@ void main() {
 
     int array[n];
 
-    printf("Enter %d elements:\n", n);
-    for (int i = 0; i < n; i++) {
-        scanf("%d", array + i);
-    }
-
     void Reverse(int *array, int size);  // function prototype
     void Read(int *array, int size);
     void Display(int *array, int size);
-    reverse_array(array, n);
+    
+    Read(array, n);
+    Reverse(array, n);
+    Display(array, n);
 
-    for (int i = 0; i < n; i++) {
-        printf("%d ", *(array + i));
-    }
 }
 
 void Reverse(int *array, int size_of_array) {
@@ -47,7 +42,7 @@ void Read(int *array, int size_of_array) {
 
 void Display(int *array, int size_of_array) {
     for (int i = 0; i < size_of_array; i++) {
-        printf("%d", *(array + i));
+        printf("%d ", *(array + i));
     }
     printf("\n");
 }
