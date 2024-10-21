@@ -6,7 +6,7 @@ and PS2.*/
 #include <stdio.h>
 
 void main() {
-    char str1[25], str2[25], *PS1 = str1, *PS2 = str2;
+    char str1[30], str2[30], *PS1 = str1, *PS2 = str2;
 
     printf("Enter string 1: ");
     scanf("%s", PS1);
@@ -15,6 +15,12 @@ void main() {
     scanf("%s", PS2);
 
     void StrCat(char *, char *);
+
+    // Check if the combined length exceeds the maximum allowed length
+    if (strlen(str1) + strlen(str2) >= 30) {
+        printf("Error: Concatenated string would exceed maximum length.\n");
+        exit(0);
+    }
 
     StrCat(PS1, PS2);
 
