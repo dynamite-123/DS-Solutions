@@ -16,22 +16,22 @@ void main(){
 
     printf("Enter %d elements:\n", n);
     for (int i = 0; i < n; i++) {
-        scanf("%d", &array[i]);
+        scanf("%d", array + i);
     }
 
     void reverse_array(int *array, int size); //function prototype
     reverse_array(array, n);
 
     for (int i = 0; i < n; i++) {
-        printf("%d ", array[i]);
+        printf("%d ", *(array + i));
     }
 }
 
 void reverse_array(int *array, int size_of_array){
     int temp;
     for(int i=0; i<size_of_array/2; i++){
-        temp = array[i];
-        array[i] = array[size_of_array - 1 - i];
-        array[size_of_array - 1 - i] = temp;
+        temp = *(array + i);
+        *(array + i) = *(array + (size_of_array - 1 - i));
+        *(array + (size_of_array - 1 - i)) = temp;
     }
 }
