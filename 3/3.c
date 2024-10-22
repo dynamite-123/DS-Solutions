@@ -84,15 +84,15 @@ void Read(struct Time *t) {
     printf("hour: ");
     scanf("%d", &t->second);
 
-    if (t->hour < 0 || t->hour > 24) {
+    if (t->hour < 0 || t->hour > 23) {
         printf("Invalid time");
         exit(0);
     }
-    if (t->minute < 0 || t->minute > 60) {
+    if (t->minute < 0 || t->minute > 59) {
         printf("Invalid time");
         exit(0);
     }
-    if (t->second < 0 || t->second > 60) {
+    if (t->second < 0 || t->second > 59) {
         printf("Invalid time");
         exit(0);
     }
