@@ -1,132 +1,92 @@
-/*Define a structure called Time containing 3 integer members (hour, minute,
-second). Develop a menu driven program to perform the following by writing
-separate function for each operation.
-a) Read (T): To read time
-b) Display (T):To display time
-c) update(T):To Update time
-d) Add (T1, T2) : Add two times.
-Update function increments the time by one second and returns the new time
-(if the increment results in 60 seconds, then the second member is set to zero
-and minute member is incremented by one. If the result is 60 minutes, the
-minute member is set to zero and the hour member is incremented by one.
-Finally, when the hour becomes 24, Time should be reset to zero. While
-adding two time variable, normalize the resultant time value as in the case of
-update function.
-Note: Illustrate the use of pointer to pass time variable to different functions.*/
+/*Define a structure called Student with the members: Name, Reg_no, marks in
+3 tests and average_ marks.
+Develop a menu driven program to perform the following by writing separate
+function for each operation: a) read information of N students b) display
+student’s information c) to calculate the average of best two test marks of
+each student.
+Note: Allocate memory dynamically and illustrate the use of pointer to an
+array of structure. */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-struct Time {
-    int hour, minute, second;
-};
+typedef struct {
+    char name[25];
+    int reg_no;
+    int m[3];
+    float avg;
+} Stu;
 
-void Read(struct Time *t);
-void Display(struct Time *t);
-void Update(struct Time *t);
-void Add(struct Time *t1, struct Time *t2);
+void read(Stu*, int);
+void display(Stu*, int);
+float average(int, int, int);
 
 void main() {
-    struct Time *t1, *t2;
-    int choice, mark = 0;
-    t1 = (struct Time *)malloc(sizeof(struct Time));
-    t2 = (struct Time *)malloc(sizeof(struct Time));
-    if ((t1 == NULL) || (t1 == NULL)) {
-        printf("Memory allocation failed\n");
-        exit(0);
-    }
-    
-options: {
-    printf("\n1->Read\n2->Display\n3->Update\n4->Add\n5->exit\nEnter choice: ");
-    scanf("%d", &choice);
-    switch (choice) {
-        case 1:
-            Read(t1);
-            mark++;
-            break;
-        case 2:
-            if (mark == 0) {
-                printf("Haven't read any time");
+    int n; 
+    printf("Enter the number of students: \n");
+    scanf("%d", &n);
+
+    Stu *students;
+    students = (Stu*)malloc(n*sizeof(Stu));
+
+    int choice;
+
+    while(1) {
+        printf("\n1->READ\n2->DISPLAY\n3->EXIT\nEnter choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1:
+                read(students, n);
                 break;
-            }
-            Display(t1);
-            break;
-        case 3:
-            if (mark = 0) {
-                printf("Haven't read any time");
+            case 2:
+                display(students, n);
                 break;
-            }
-            Update(t1);
-            break;
-        case 4:
-            Read(t1);
-            Read(t2);
-            Add(t1, t2);
-            break;
-        case 5:
-            exit(0);
-    }
-}
-    goto options;
-
-    free(t1);
-    free(t2);
-}
-
-void Read(struct Time *t) {
-    printf("ENTER TIME:\n");
-    printf("hour: ");
-    scanf("%d", &t->hour);
-
-    printf("minute: ");
-    scanf("%d", &t->minute);
-
-    printf("hour: ");
-    scanf("%d", &t->second);
-
-    if (t->hour < 0 || t->hour > 24) {
-        printf("Invalid time");
-        exit(0);
-    }
-    if (t->minute < 0 || t->minute > 60) {
-        printf("Invalid time");
-        exit(0);
-    }
-    if (t->second < 0 || t->second > 60) {
-        printf("Invalid time");
-        exit(0);
+            case 3:
+                return;
+            default:
+                return;
+        }
     }
 }
 
-void Display(struct Time *t) {
-    printf("TIME:\nhour: %d\nminute: %d\nsecond: %d\n", t->hour, t->minute, t->second);
+void read(Stu *students, int n) {
+    for(int i=0; i<n; i++) {
+        printf("\nEnter the student details for student %d: \n", (i+1));
+
+        printf("Enter name: \n");
+        scanf("%s", (students+i)->name);
+
+        printf("Enter reg_no: \n");
+        scanf("%d", &(students+i)->reg_no);
+
+        printf("Enter 3 marks: \n");
+        scanf("%d%d%d", &(students+i)->m[0], &(students+i)->m[1], &(students+i)->m[2]);
+
+        (students+i)->avg = average((students+i)->m[0], (students+i)->m[1], (students+i)->m[2]);
+    }
 }
 
-void Update(struct Time *t) {
-    t->second++;
-    if (t->second == 60) {
-        t->minute++;
+void display(Stu *students, int n) {
+    for(int i=0; i<n; i++) {
+        printf("\nThe student details of student %d: \n", (i+1));
+        printf("Name: %s\n", (students+i)->name);
+        printf("Reg_no: %d\n", (students+i)->reg_no);
+        printf("3 marks: %d %d %d\n", (students+i)->m[0], (students+i)->m[1], (students+i)->m[2]);
+        printf("average marks of top 2 scores: %f", (students+i)->avg);
     }
-    if (t->minute == 60) {
-        t->hour++;
-    }
-    if (t->hour == 24) {
-        t->second = 0;
-        t->minute = 0;
-        t->hour = 0;
-    }
-    printf("UPDATED TIME:\nhour: %d\nminute: %d\nsecond: %d\n", t->hour, t->minute, t->second);
 }
 
-void Add(struct Time *t1, struct Time *t2) {
-    struct Time t3;
-    int xmin = (t1->second + t2->second) / 60;
-    t3.second = (t1->second + t2->second) % 60;
-
-    int xhour = (t1->minute + t2->minute + xmin) / 60;
-    t3.minute = (t1->minute + t2->minute + xmin) % 60;
-
-    t3.hour = (t1->hour + t2->hour + xhour) % 24;
-
-    printf("ADDED TIME:\nhour: %d\nminute: %d\nsecond: %d\n", t3.hour, t3.minute, t3.second);
+float average(int a, int b, int c) {
+    int l1, l2;
+    if(a <= b && a <= c) {
+        return ((b+c) / 2.0);
+    }
+    else if(b <= a && b <= c) {
+        return ((a+c) / 2.0);
+    }
+    else {
+        return ((a+b) / 2.0);
+    }
 }
+ 
