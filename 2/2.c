@@ -24,6 +24,7 @@ struct Time {
 void Read(struct Time *t);
 void Display(struct Time *t);
 void Update(struct Time *t);
+void Add(struct Time *t1, struct Time *t2);
 
 void main() {
     struct Time *t1, *t2;
