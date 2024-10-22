@@ -37,8 +37,8 @@ void main() {
     }
 
     options:{
-    printf("\n1->Read\n2->Display\n3->Update\n4->Add\n5->exit\nEnter choice: ");
-    scanf("%d", &choice);
+        printf("\n1->Read\n2->Display\n3->Update\n4->Add\n5->exit\nEnter choice: ");
+        scanf("%d", &choice);
         switch (choice) {
         case 1:
             Read(t1);
