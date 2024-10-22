@@ -43,9 +43,9 @@ void main() {
                 display(students, n);
                 break;
             case 3:
-                return;
+                exit(0);
             default:
-                return;
+                exit(0);
         }
     }
 }
