@@ -4,6 +4,7 @@ concatenates second string to the end of first string using pointers PS1
 and PS2.*/
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void main() {
     char str1[30], str2[30], *PS1 = str1, *PS2 = str2;
