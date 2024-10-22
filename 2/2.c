@@ -35,24 +35,24 @@ void main() {
         printf("Memory allocation failed\n");
         exit(0);
     }
-
-    options:{
-        printf("\n1->Read\n2->Display\n3->Update\n4->Add\n5->exit\nEnter choice: ");
-        scanf("%d", &choice);
-        switch (choice) {
+    
+options: {
+    printf("\n1->Read\n2->Display\n3->Update\n4->Add\n5->exit\nEnter choice: ");
+    scanf("%d", &choice);
+    switch (choice) {
         case 1:
             Read(t1);
             mark++;
             break;
         case 2:
-            if(mark == 0){
+            if (mark == 0) {
                 printf("Haven't read any time");
                 break;
             }
             Display(t1);
             break;
         case 3:
-            if(mark = 0){
+            if (mark = 0) {
                 printf("Haven't read any time");
                 break;
             }
@@ -65,10 +65,10 @@ void main() {
             break;
         case 5:
             exit(0);
-        }
     }
+}
     goto options;
-   
+
     free(t1);
     free(t2);
 }
