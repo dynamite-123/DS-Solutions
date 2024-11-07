@@ -81,7 +81,7 @@ void Read(struct Time *t) {
     printf("minute: ");
     scanf("%d", &t->minute);
 
-    printf("hour: ");
+    printf("second: ");
     scanf("%d", &t->second);
 
     if (t->hour < 0 || t->hour > 23) {
