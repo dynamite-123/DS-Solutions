@@ -126,7 +126,7 @@ void insert_by_key(int *arr, int key, int value, int n) {
     int pos = -1;
     for (int i = 0; i < n; i++) {
         if (arr[i] == key) {
-            pos = i - 1;
+            pos = i+1;
             printf("%d\n", pos);
             break;
         }
